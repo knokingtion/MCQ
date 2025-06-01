@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCQ Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .question { margin-bottom: 20px; }
+    .option { display: block; margin: 5px 0; cursor: pointer; }
+    .correct { background-color: #c8e6c9; }
+    .incorrect { background-color: #ffcdd2; }
+    .summary { margin-top: 30px; font-weight: bold; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>MCQ Quiz</h1>
+  <form id="quizForm">
+    <div id="quizContainer"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="summary" id="summary"></div>
+
+  <script>
+    let questions = [
+{
+  q: "(1) It may be said that …….. was the founder of modern historiography.",
+  options: ['Voltaire', 'René Descartes', 'Leopold Ranké', 'Karl Marx'],
+  answer: "Voltaire"
+},
+{
+  q: "(2) ………… wrote the book entitled ‘Archaeology of Knowledge’.",
+  options: ['Karl Marx', 'Michel Foucault', 'Lucien Febvre', 'Voltaire'],
+  answer: "Michel Foucault"
+},
+{
+  q: "(3) …….. was the first Director General of the Archaeological Survey of India.",
+  options: ['Alexander Cunningham', 'William Jones', 'John Marshall', 'Friedrich Max Muller'],
+  answer: "Alexander Cunningham"
+},
+{
+  q: "(4) ………… translated the Sanskrit text of ‘Hitopadesh’ in German language.",
+  options: ['James Mill', 'Friedrich Max Muller', 'Mountstuart Elphinstone', 'Sir John Marshall'],
+  answer: "Friedrich Max Muller"
+},
+{
+  q: "(5) The earliest museum in the world was discovered in the excavations at the city of ………. .",
+  options: ['Delhi', 'Harappa', 'Ur', 'Kolkata'],
+  answer: "Ur"
+},
+{
+  q: "(6) The National Archives of India is in ……………. .",
+  options: ['New Delhi', 'Kolkata', 'Mumbai', 'Chennai'],
+  answer: "New Delhi"
+},
+{
+  q: "(7) The arts of painting and sculpting are ………. .",
+  options: ['visual arts', 'performing arts', 'folk arts', 'classical arts'],
+  answer: "visual arts"
+},
+{
+  q: "(8) The ………. saw the rise of Mathura school.",
+  options: ['Kushana period', 'Gupta period', 'Rashtrakuta period', 'Maurya period'],
+  answer: "Kushana period"
+},
+{
+  q: "(9) The first English newspaper in India was started by ………",
+  options: ['James Augustus Hickey', 'John Marshall', 'Allen Hume'],
+  answer: "James Augustus Hickey"
+},
+{
+  q: "(10) Television is an …………….medium.",
+  options: ['visual', 'audio', 'audio-visual'],
+  answer: "audio-visual"
+},
+{
+  q: "(11) ……… are supposed to be the first keertankar in Maharashtra.",
+  options: ['Saint Dnyanehshwar', 'Saint Tukaram', 'Saint Namdev', 'Saint Eknath'],
+  answer: "Saint Namdev"
+},
+{
+  q: "(12) Baburao painter made the movie, ……….. .",
+  options: ['Pundalik', 'Raja Harischandra', 'Sairandhri', 'Bajirao-Mastani'],
+  answer: "Sairandhri"
+},
+{
+  q: "(13) The ancient event of Olympic competitions used to be held at ............ .",
+  options: ['Olympia, Greece', 'Rome', 'India', 'China'],
+  answer: "Olympia, Greece"
+},
+{
+  q: "(14) The wooden dolls made in Maharashtra are known as ............ .",
+  options: ['Thaki', 'Kalichandika', 'Gangavati', 'Champavati'],
+  answer: "Thaki"
+},
+{
+  q: "(15) Thomas Cook established a travel agency selling …… .",
+  options: ['handicrafts', 'toys', 'food items', 'tourist tickets'],
+  answer: "tourist tickets"
+},
+{
+  q: "(16) Bhilar is known as the ‘Village of …….’ .",
+  options: ['books', 'plants', 'mangoes', 'forts'],
+  answer: "books"
+},
+{
+  q: "(17) Lovre Museum has in its collection the much acclaimed painting of …….. by Leonardo da Vinci.",
+  options: ['Napoleon', 'Mona Lisa', 'Hans sloan', 'George II'],
+  answer: "Mona Lisa"
+},
+{
+  q: "(18) ……… at Kolkata is the first museum in India.",
+  options: ['Government Museum', 'National Museum', 'Chhatrapati Shivaji Maharaj Vastusangrahalay', 'Indian Museum'],
+  answer: "Indian Museum"
+},
+{
+  q: "(19) In Maharashtra ............ seats are reserved for women in local self-governing institutions.",
+  options: ['25%', '30%', '40%', '50%'],
+  answer: "50%"
+},
+{
+  q: "(20) Which of the following laws created a favourable environment for women to secure freedom and self-development ?",
+  options: ['Right to Information Act', 'Dowry Prohibition Act', 'Food Security Act', 'None of the above'],
+  answer: "Dowry Prohibition Act"
+},
+{
+  q: "(21) The essence of democracy is ..........",
+  options: ['universal adult franchise', 'decentralisation of power', 'policy of reservation of seats', 'judicial decisions'],
+  answer: "decentralisation of power"
+},
+{
+  q: "(22) The Election Commissioner is appointed by the ............ .",
+  options: ['President', 'Prime Minister', 'Speaker of Loksabha', 'Vice President'],
+  answer: "President"
+},
+{
+  q: "(23) ............ was appointed as the first Chief Election Commissioner of independent India.",
+  options: ['Dr. Rajendra Prasad', 'T.N. Sheshan', 'Sukumar Sen', 'Neela Satyanarayan'],
+  answer: "Sukumar Sen"
+},
+{
+  q: "(24) Constituencies are created by .......... committee of the Election Commission.",
+  options: ['Selection', 'Delimitation', 'Voting', 'Timetable'],
+  answer: "Delimitation"
+},
+{
+  q: "(25) When people come together and participate in electoral process, to acquire political power, such organisations are called ............ .",
+  options: ['Government', 'Society', 'Political parties', 'Social organisations'],
+  answer: "Political parties"
+},
+{
+  q: "(26) National Conference is a party in ............ State.",
+  options: ['Odisha', 'Assam', 'Bihar', 'Jammu and Kashmir'],
+  answer: "Jammu and Kashmir"
+},
+{
+  q: "(27) Justice Party -a non-Brahmin movement was transformed into ......... Political Party.",
+  options: ['Assam Gan Parishad', 'Shivsena', 'Dravid Munnetra Kazhagam', 'Jammu and Kashmir National Conference'],
+  answer: "Dravid Munnetra Kazhagam"
+},
+{
+  q: "(28) ............ is the main demand of farmers movement.",
+  options: ['Right to cultivate on the forest land', 'To get the right price for agricultural product', 'Protection of consumers', 'Building of dams'],
+  answer: "To get the right price for agricultural product"
+},
+{
+  q: "(29) To increase agricultural production and become self-sufficient with regard to food grains ............ was initiated.",
+  options: ['Water revolution', 'Green revolution', 'Industrial revolution', 'White revolution'],
+  answer: "Green revolution"
+},
+{
+  q: "(30) In a democracy ............ participate in elections and get political power.",
+  options: ['political parties', 'courts', 'social organisations', 'none of the above'],
+  answer: "political parties"
+},
+{
+  q: "(31) The major challenge faced by all democratic nations in the world is ............ .",
+  options: ['Religious conflicts', 'Naxal activities', 'Deepening the roots of democracy', 'Importance to muscle power'],
+  answer: "Deepening the roots of democracy"
+}
+];
+
+    const shuffleArray = (array) => {
+      return array.sort(() => Math.random() - 0.5);
+    };
+
+    questions = shuffleArray(questions);  // Shuffle question order
+
+    const quizContainer = document.getElementById("quizContainer");
+    questions.forEach((q, index) => {
+      const shuffledOptions = shuffleArray([...q.options]);
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<p>${q.q}</p>` +
+        shuffledOptions.map(opt => `
+          <label class="option">
+            <input type="radio" name="q${index}" value="${opt}" required /> ${opt}
+          </label>`).join('');
+      quizContainer.appendChild(div);
+    });
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let correct = 0, incorrect = 0;
+      questions.forEach((q, index) => {
+        const radios = document.getElementsByName(`q${index}`);
+        radios.forEach(radio => {
+          radio.disabled = true;
+          const parent = radio.parentElement;
+          if (radio.checked) {
+            if (radio.value === q.answer) {
+              parent.classList.add("correct");
+              correct++;
+            } else {
+              parent.classList.add("incorrect");
+              incorrect++;
+            }
+          } else if (radio.value === q.answer) {
+            parent.classList.add("correct");
+          }
+        });
+      });
+      document.getElementById("summary").innerText = `Correct: ${correct}, Incorrect: ${incorrect}`;
+      document.querySelector("button[type=submit]").disabled = true;
+    });
+  </script>
+</body>
+</html>
